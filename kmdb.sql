@@ -102,12 +102,186 @@
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
 
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS actors;
+DROP TABLE IF EXISTS studios;
+
 -- Create new tables, according to your domain model
 -- TODO!
+
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    year INTEGER,
+    MPAA TEXT,
+    studio_id INTEGER
+);
+
+CREATE TABLE actors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    role TEXT,
+    movie_id INTEGER,
+    studio_id INTEGER
+);
+
+CREATE TABLE studios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    movie_id INTEGER
+);
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+
+INSERT INTO movies (
+    "title",
+    "year",
+    "MPAA",
+    "studio_id"
+) VALUES (
+    "Batman Begins",
+    "2005",
+    "PG-13",
+    "1"
+),
+(
+    "The Dark Knight",
+    "2008",
+    "PG-13",
+    "1"   
+),
+(
+    "The Dark Knight Rises",
+    "2012",
+    "PG-13",
+    "1"   
+);
+
+
+
+INSERT INTO actors (
+    "name",
+    "role",
+    "movie_id",
+    "studio_id"
+) VALUES (
+    "Christian Bale",
+    "Bruce Wayne",
+    "1",
+    "1"
+),
+(
+    "Michael Caine",
+    "Alfred",
+    "1",
+    "1"
+),
+(
+    "Liam Neeson",
+    "Ra's Al Ghul",
+    "1",
+    "1"
+),
+(
+    "Katie Holmes",
+    "Rachel Dawes",
+    "1",
+    "1"
+),
+(
+    "Gary Oldman",
+    "Commissioner Gordon",
+    "1",
+    "1"
+),
+(
+    "Christian Bale",
+    "Bruce Wayne",
+    "2",
+    "1"
+),
+(
+    "Heath Ledger",
+    "Joker",
+    "2",
+    "1"
+),
+(
+    "Aaron Eckhart",
+    "Harvey Dent",
+    "2",
+    "1"
+),
+(
+    "Michael Caine",
+    "Alfred",
+    "2",
+    "1"
+),
+(
+    "Maggie Gyllenhaal",
+    "Rachel Dawes",
+    "2",
+    "1"
+),
+(
+    "Christian Bale",
+    "Bruce Wayne",
+    "3",
+    "1"
+),
+(
+    "Gary Oldman",
+    "Commissioner Gordon",
+    "3",
+    "1"
+),
+(
+    "Tom Hardy",
+    "Bane",
+    "3",
+    "1"
+),
+(
+    "Joseph Gordon-Levitt",
+    "John Blake",
+    "3",
+    "1"
+),
+(
+    "Anne Hathaway",
+    "Selina Kyle",
+    "3",
+    "1"
+);
+
+
+
+INSERT INTO studios (
+    "name",
+    "movie_id"
+) VALUES (
+    "Warner Bros.",
+    "1"
+),
+(
+    "Warner Bros.",
+    "2"
+),
+(
+    "Warner Bros.",
+    "3"
+);
+
+
+
+
+
+
+
+
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -116,6 +290,8 @@
 
 -- The SQL statement for the movies output
 -- TODO!
+
+-- SELECT movies.title, movies.year, movies.MPAA,  FROM movies
 
 -- Prints a header for the cast output
 .print ""
