@@ -276,13 +276,6 @@ INSERT INTO studios (
 );
 
 
-
-
-
-
-
-
-
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
@@ -291,7 +284,9 @@ INSERT INTO studios (
 -- The SQL statement for the movies output
 -- TODO!
 
--- SELECT movies.title, movies.year, movies.MPAA,  FROM movies
+SELECT movies.title, movies.year, movies.MPAA, studios.name
+FROM movies
+INNER JOIN studios ON movies.id = studios.movie_id;
 
 -- Prints a header for the cast output
 .print ""
@@ -302,3 +297,7 @@ INSERT INTO studios (
 
 -- The SQL statement for the cast output
 -- TODO!
+
+SELECT movies.title, actors.name, actors.role
+FROM actors
+INNER JOIN movies ON actors.movie_id = movies.id;
