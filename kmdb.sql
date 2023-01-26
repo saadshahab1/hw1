@@ -99,6 +99,9 @@
 .mode column
 .headers off
 
+-- Adjust width of columns
+.width 21 21 21
+
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
 
